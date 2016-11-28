@@ -71,4 +71,22 @@ if __name__ == '__main__':
     setup(
         name='tnt',
         version='0.0.0',
+        classifiers=[
+            'Development Status :: 4 - Beta',
+            'Intended Audience :: Developers',
+            'Intended Audience :: Education',
+            'Intended Audience :: Science/Research',
+            'Programming Language :: Python :: 2.7',
+            'Programming Language :: Python :: 3.4',
+            'Programming Language :: Python :: 3.5',
+            'License :: OSI Approved :: MIT License',
+            'Topic :: Scientific/Engineering :: Artificial Intelligence',
+            'Topic :: Scientific/Engineering :: Mathematics',
+            'Topic :: Software Development :: Libraries',
+            'Topic :: Software Development :: Libraries :: Python Modules',
+        ],
+        license='MIT',
+        url='https://github.com/TwentyBN/tnt',
+        author='Ingo Fruend, Valentin Haenel',
+        author_email='ingo.fruend@twentybn.com, valentin@haenel.co',
     )
