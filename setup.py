@@ -69,7 +69,7 @@ if __name__ == '__main__':
 
     setup(
         name='tnt',
-        version='0.11.0.4',
+        version='0.11.0.5',
         description='tnt is not tensorflow',
         classifiers=[
             'Development Status :: 4 - Beta',
