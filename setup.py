@@ -10,7 +10,6 @@ class UnsupportedPlatformException(Exception):
 
 def install_tensorflow():
     python_version = pythonversion()
-    print(python_version)
     has_gpu = hasgpu()
     platform_name = platform()
     install_url = build_url("0.11.0",
