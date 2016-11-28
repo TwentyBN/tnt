@@ -70,7 +70,7 @@ if __name__ == '__main__':
 
     setup(
         name='tnt',
-        version='0.0.0',
+        version='0.11.0.1',
         classifiers=[
             'Development Status :: 4 - Beta',
             'Intended Audience :: Developers',
