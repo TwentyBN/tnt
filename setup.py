@@ -3,6 +3,8 @@ import os
 from distutils.core import setup
 import pip
 
+TFVERSION = "0.12.0"
+
 
 class UnsupportedPlatformException(Exception):
     pass
@@ -12,7 +14,7 @@ def install_tensorflow():
     python_version = pythonversion()
     has_gpu = hasgpu()
     platform_name = platform()
-    install_url = build_url("0.11.0",
+    install_url = build_url(TFVERSION,
                             python_version,
                             "gpu" if has_gpu else "cpu",
                             platform_name,
@@ -69,7 +71,7 @@ if __name__ == '__main__':
 
     setup(
         name='tnt',
-        version='0.11.0.5',
+        version='0.12.0.6',
         description='tnt is not tensorflow',
         classifiers=[
             'Development Status :: 4 - Beta',
