@@ -1,77 +1,24 @@
-import sys
 import os
 from distutils.core import setup
 import pip
 
-TFVERSION = "0.12.0"
-
-
-class UnsupportedPlatformException(Exception):
-    pass
-
 
 def install_tensorflow():
-    python_version = pythonversion()
-    has_gpu = hasgpu()
-    platform_name = platform()
-    install_url = build_url(TFVERSION,
-                            python_version,
-                            "gpu" if has_gpu else "cpu",
-                            platform_name,
-                            )
-    pip.main(['install', '-U', install_url])
-
-
-def pythonversion():
-    return sys.version_info[:2]
+    install_target = 'tensorflow'
+    if hasgpu():
+        install_target += '-gpu'
+    pip.main(['install', '-U', install_target])
 
 
 def hasgpu():
     return not os.system('which nvidia-smi > /dev/null')
-
-
-def platform():
-    platform_name = sys.platform
-    if platform_name.startswith('linux'):
-        return 'linux'
-    elif platform_name.startswith('darwin'):
-        return 'mac'
-    else:
-        raise UnsupportedPlatformException(
-            'Only linux and mac are supported, but you are on "{}"'
-            .format(platform_name))
-
-
-def create_wheeltags(platform_name, python_version):
-    if platform_name == 'mac':
-        return 'py{}-none-any'.format(python_version[0])
-    elif platform_name == 'linux':
-        cpstring = '{}{}'.format(python_version[0], python_version[1])
-        if cpstring == '27':
-            return 'cp27-none-linux_x86_64'
-        else:
-            return 'cp{}-cp{}m-linux_x86_64'.format(cpstring, cpstring)
-
-
-def build_url(tf_version, python_version, processing_unit, platform_name):
-    kwargs = {
-        'platform_name': platform_name,
-        'processing_unit': processing_unit,
-        'tf_version': tf_version,
-        'wheeltags': create_wheeltags(platform_name, python_version)
-    }
-    return ('https://storage.googleapis.com/tensorflow/'
-            '{platform_name}/{processing_unit}/'
-            'tensorflow-{tf_version}-{wheeltags}.whl'
-            .format(**kwargs))
-
 
 if __name__ == '__main__':
     install_tensorflow()
 
     setup(
         name='tnt',
-        version='0.12.0.6',
+        version='0.12.0.7',
         description='tnt is not tensorflow',
         classifiers=[
             'Development Status :: 4 - Beta',
