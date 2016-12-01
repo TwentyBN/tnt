@@ -23,7 +23,7 @@ and represents tnt-internal changes. This is useful, if you want to specify
 
 If you install tnt in multiple environments, note that `pip` will usually cache
 previous installs. This means that the second time you install `tnt` tensorflow
-*won't be installed*. To avoid this, you can install tnt like this
+*won't be installed for tensorflow versions before 0.12.0rc0*. To avoid this, you can install tnt like this
 
     pip install --no-cache-dir tnt
 
