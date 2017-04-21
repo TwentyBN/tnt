@@ -38,4 +38,5 @@ if __name__ == '__main__':
         url='https://github.com/TwentyBN/tnt',
         author='Ingo Fruend, Valentin Haenel',
         author_email='ingo.fruend@twentybn.com, valentin@haenel.co',
+        description='tnt is not tensorflow',
     )
